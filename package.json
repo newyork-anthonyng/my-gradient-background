@@ -1,0 +1,29 @@
+{
+  "name": "my-gradient-background",
+  "version": "1.0.0",
+  "description": "Web Component for an element gradient transition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Anthony Ng",
+    "email": "newyork.anthonyng@gmail.com",
+    "url": "http://anthonyng.me"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "an-scripts": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newyork-anthonyng/my-gradient-background.git"
+  },
+  "bugs": {
+    "url": "https://github.com/newyork-anthonyng/my-gradient-background/issues"
+  },
+  "homepage": "https://github.com/newyork-anthonyng/my-gradient-background#readme",
+  "readme": "ERROR: No README data found!",
+  "_id": "my-gradient-background@1.0.0"
+}
