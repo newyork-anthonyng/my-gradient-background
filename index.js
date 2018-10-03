@@ -4,7 +4,9 @@ class MyGradientBackground extends HTMLElement {
         this.attachShadow({ mode: "open" });
 
         this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
-        const gradient = this.getAttribute('gradient');
+        this.updateAfterEleStyle = this.updateAfterEleStyle.bind(this);
+
+        const gradient = this.getAttribute('gradient') || "white";
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
@@ -40,12 +42,19 @@ class MyGradientBackground extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        if (oldValue && newValue && oldValue !== newValue) {
-            this.afterEle.style.background = `linear-gradient(${newValue})`;
-            this.afterEle.style.opacity = '1';
-
-            this.afterEle.addEventListener("transitionend", this.handleTransitionEnd);
+        if (oldValue === null) {
+            // window.setTimeout fixes bug where this.afterEle was not updating correctly
+            window.setTimeout(() => this.updateAfterEleStyle(newValue));
+        } else if (oldValue && newValue && oldValue !== newValue) {
+            this.updateAfterEleStyle(newValue);
         }
+    }
+
+    updateAfterEleStyle(newValue) {
+        this.afterEle.style.background = `linear-gradient(${newValue})`;
+        this.afterEle.style.opacity = '1';
+
+        this.afterEle.addEventListener("transitionend", this.handleTransitionEnd);
     }
 
     handleTransitionEnd() {
