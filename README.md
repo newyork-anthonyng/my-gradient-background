@@ -13,6 +13,38 @@
 
 # my-gradient-background
 
+# What?
+A Web Component for an element gradient transition.
+![Gradient background transitioning to different colors](./preview.gif)
+
+# Getting started
+```
+npm install --save my-gradient-background
+```
+
+# Usage
+```js
+const MyGradientBackground = require("my-gradient-background");
+
+if (!window.customElements.get("my-gradient-background")) {
+  window.customElements.define("my-gradient-background", MyGradientBackground);
+}
+```
+
+```html
+<my-gradient-background gradient="red, white, blue"></my-gradient-background>
+
+<script type="text/javascript">
+  const gradientEle = document.querySelector("my-gradient-background");
+
+  window.setTimeout(() => {
+      // use any linear-gradient color
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient
+      gradientEle.setAttribute("gradient", "#e66465, #9198e5");
+  }, 2500);
+</script>
+```
+
 [codecov]: https://codecov.io/gh/newyork-anthonyng/my-gradient-background
 [codecov-badge]: https://img.shields.io/codecov/c/github/newyork-anthonyng/my-gradient-background/master.svg
 [code-climate]: https://codeclimate.com/github/newyork-anthonyng/my-gradient-background/maintainability
